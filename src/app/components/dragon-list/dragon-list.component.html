@@ -1,0 +1,11 @@
+<div class="dragon-grid">
+   @for (c of (characters$ | async); track c.id) {
+    <a [routerLink]="['/dragon', c.id]" class="dragon-card">  
+      <div class="img-wrap">
+       <img [src]="c.image || 'https://via.placeholder.com/240x240?text=No+Image'" alt="{{ c.name }}" />
+      </div>
+      <h4>{{ c.name }}</h4>
+     <p class="meta">{{ c.alias ? c.alias : (c.race || '—') }}</p>
+       </a>
+   }
+</div>

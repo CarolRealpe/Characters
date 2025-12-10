@@ -1,0 +1,54 @@
+.simpsons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* ================================================================
+   CORRECCIÓN: Aplicamos el estilo de tarjeta a la etiqueta <a>.
+   ================================================================
+*/
+.simpsons-grid a.sim-card { 
+  /* 1. ANULAR ESTILOS DE ENLACE POR DEFECTO */
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit;      /* Mantiene el color de texto del elemento padre (negro) */
+
+  /* 2. ESTILOS ORIGINALES DE .sim-card */
+  background: #ffeb3b;
+  border-radius: 12px;
+  padding: .8rem;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+
+  /* 3. ANULAR ESTADO VISITADO (para que no se ponga morado) */
+  &:visited {
+    color: inherit;
+  }
+
+  /* 4. MANTENER ESTADO HOVER */
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0,0,0,.18);
+  }
+
+  /* 5. MANTENER ESTILOS INTERNOS */
+  .thumb img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .meta h4 {
+    margin: 0 0 .2rem 0;
+  }
+
+  .extra {
+    font-size: .9rem;
+    color: #333;
+  }
+}

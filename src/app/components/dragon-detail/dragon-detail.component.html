@@ -1,0 +1,33 @@
+@if (character()) {
+  <section class="dragon-detail">
+    
+    <div class="left">
+      <img 
+        [src]="character()?.image || 'https://via.placeholder.com/320x320?text=No+Image'" 
+        alt="{{ character()?.name }}" 
+      />
+    </div>
+
+    <div class="right">
+      <h1>{{ character()?.name }}</h1>
+
+      @if (character()?.alias) {
+        <p><strong>Alias:</strong> {{ character()?.alias }}</p>
+      }
+
+      @if (character()?.race) {
+        <p><strong>Race:</strong> {{ character()?.race }}</p>
+      }
+
+      @if (character()?.gender) {
+        <p><strong>Gender:</strong> {{ character()?.gender }}</p>
+      }
+
+      @if (character()?.description) {
+        <p><strong>About:</strong> {{ character()?.description }}</p>
+      }
+
+    </div>
+
+  </section>
+}

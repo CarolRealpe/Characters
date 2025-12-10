@@ -1,0 +1,15 @@
+<div class="simpsons-grid">
+  @for (c of (characters$ | async); track c.id) {
+    <a [routerLink]="['/simpsons', c.id]" class="sim-card">
+      <div class="thumb">
+        <img [src]="c.image || 'https://via.placeholder.com/250x250?text=No+Image'" alt="{{ c.name }}" />
+      </div>
+      <div class="meta">
+        <h4>{{ c.name }}</h4>
+        <p class="extra">ID: {{ c.id }}</p>
+      </div>
+    </a>
+  } @empty {
+    <p>Cargando personajes de Los Simpsons...</p>
+  }
+</div>

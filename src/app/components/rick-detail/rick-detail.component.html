@@ -1,0 +1,13 @@
+@if (character()) {
+  <div class="detail">
+    <img [src]="character().image || 'https://via.placeholder.com/300?text=No+Image'" />
+
+    <div class="info">
+      <h1>{{ character().name }}</h1>
+      <p><strong>Status:</strong> {{ character().status }}</p>
+      <p><strong>Gender:</strong> {{ character().gender }}</p>
+      <p><strong>Origin:</strong> {{ character().origin?.name }}</p>
+    </div>
+    <a routerLink="/rick">← Volver</a>
+  </div>
+}

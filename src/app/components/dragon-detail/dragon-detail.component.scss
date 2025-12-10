@@ -1,0 +1,26 @@
+.dragon-detail {
+  display: flex;
+  gap: 1.4rem;
+  padding: 1.2rem;
+  background: #f5f7ff;
+  border-radius: 10px;
+  width: 92%;
+  margin: 1.2rem auto;
+
+  .left img {
+    width: 320px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .right {
+    h1 { margin-top: 0; }
+    .debug {
+      margin-top: 1rem;
+      background: #fff;
+      padding: .6rem;
+      border-radius: 6px;
+      font-size: .85rem;
+    }
+  }
+}
