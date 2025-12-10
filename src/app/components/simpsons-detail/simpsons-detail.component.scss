@@ -1,128 +1,96 @@
-.simpson-detail {
-  max-width: 950px;
-  margin: 4rem auto;
-  padding: 3rem;
-  background: #fefc9a;
-  border-radius: 20px;
-  border: 4px solid #000000;
-  box-shadow: 8px 8px 0px #000000, 0 10px 30px rgba(0, 0, 0, 0.2); 
-  display: flex;
-  gap: 3rem;
-  align-items: flex-start;
-  font-family: 'Bangers', cursive, sans-serif;
-
-  .image-wrap {
-    flex-shrink: 0;
-    width: 320px;
-    height: 320px;
-    background: #ffd90f;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 3px solid #000000;
-    box-shadow: 4px 4px 0px #000000;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-  }
-
-  .info {
-    flex-grow: 1;
-
-    h1 {
-      color: #e74c3c;
-      font-size: 3.2rem;
-      font-weight: 800;
-      border-bottom: 5px dashed #000000; 
-      padding-bottom: 0.8rem;
-      margin-top: 0;
-      margin-bottom: 2rem;
-      text-shadow: 2px 2px #000000;
-    }
-
-    .meta-data p {
-      margin: 1rem 0;
-      font-size: 1.2rem;
-      color: #333;
-      display: flex;
-      align-items: baseline; 
-
-      strong {
-        color: #000;
-        min-width: 160px;
-        display: inline-block;
-        font-weight: 600;
-        margin-right: 15px;
-      }
-    }
-
-    .status-alive {
-      font-weight: 800;
-      color: #27ae60;
-      text-shadow: 1px 1px #000;
-    }
-    .status-dead {
-      font-weight: 800;
-      color: #c0392b;
-      text-decoration: none;
-      text-shadow: 1px 1px #000;
-    }
-    .status-unknown {
-      font-weight: 800;
-      color: #4a4a4a;
-      text-shadow: 1px 1px #000;
-    }
-  }
+:host {
+  display: block;
+  padding: 30px;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #18181a 0%, #0a0a0c 100%); 
+  font-family: 'Orbitron', monospace, sans-serif;
+  color: #fff;
 }
 
-.back-btn {
-  display: inline-block;
-  margin-top: 3rem;
-  padding: 0.8rem 2rem;
-  background-color: #3498db;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.2s, transform 0.1s;
+h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #fff;
   font-weight: 700;
-  border: 2px solid #000;
-  box-shadow: 3px 3px 0px #000;
+  margin-bottom: 50px;
+  text-shadow: 
+    0 0 5px #ffd90f,
+    0 0 15px #ffd90f,
+    0 0 30px rgba(255, 217, 15, 0.8),
+    0 0 50px rgba(255, 217, 15, 0.6);
+  letter-spacing: 2px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 10px;
+}
+
+.card {
+  background: rgba(40, 40, 45, 0.5); 
+  border: 1px solid #3d3d42;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 
+    0 0 5px rgba(255, 217, 15, 0.3), 
+    0 5px 15px rgba(0, 0, 0, 0.8);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
   &:hover {
-    background-color: #e67e22;
-    transform: translate(1px, 1px);
-    box-shadow: 1px 1px 0px #000;
+    transform: translateY(-8px) scale(1.05);
+    background: #3d3d42; 
+    color: #ffd90f;
+    box-shadow: 
+      0 0 10px #ffd90f,
+      0 0 30px rgba(255, 217, 15, 0.8),
+      0 15px 30px rgba(0, 0, 0, 1);
   }
 }
 
-@media (max-width: 768px) {
-  .simpson-detail {
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem;
-    gap: 2rem;
-  }
-  .simpson-detail .image-wrap {
-    width: 100%;
-    max-width: 320px;
-    height: 320px;
-    margin-bottom: 1rem;
-  }
-  .simpson-detail .info h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-top: 0.5rem;
-    border-bottom: 4px dashed #000000; 
-  }
-  .simpson-detail .info .meta-data p {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .simpson-detail .info .meta-data p strong {
-    min-width: auto;
-    margin-bottom: 5px;
-  }
+.card-content {
+  text-align: center;
+  width: 100%;
+}
+
+.card-title {
+  color: #ffd90f;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-shadow: 0 0 3px #ffd90f;
+}
+
+.card-content img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid #ffd90f;
+  background: #000;
+  margin-bottom: 15px;
+  box-shadow: 0 0 8px rgba(255, 217, 15, 0.5);
+}
+
+
+.card-sub {
+  color: #b3b3b3;
+  font-size: 1rem;
+  margin: 5px 0 0;
+  text-shadow: none;
+  font-weight: 300;
+}
+
+
+.card:hover .card-title,
+.card:hover .card-sub {
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
 }
