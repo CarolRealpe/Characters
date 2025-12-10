@@ -1,26 +1,28 @@
-@if (character()) {
+@if (character(); as char) {
   <section class="simpson-detail">
     
     <img 
-      [src]="character()!['image'] || 'https://via.placeholder.com/300x300?text=No+Image'"
-      alt="{{ character()!['name'] }}" 
+      [src]="char.image || 'https://via.placeholder.com/300x300?text=No+Image'"
+      alt="{{ char.name }}" 
     />
 
     <div class="info">
-      <h1>{{ character()!['name'] }}</h1>
+      <h1>{{ char.name }}</h1>
 
-      @if (character()!['species']) {
-        <p><strong>Species:</strong> {{ character()!['species'] }}</p>
+      @if (char.species) {
+        <p><strong>Species:</strong> {{ char.species }}</p>
       }
 
-      @if (character()!['gender']) {
-        <p><strong>Gender:</strong> {{ character()!['gender'] }}</p>
+      @if (char.gender) {
+        <p><strong>Gender:</strong> {{ char.gender }}</p>
       }
 
-      <pre class="debug">{{ character()! | json }}</pre>
+      <pre class="debug">{{ char | json }}</pre>
 
       <a routerLink="/simpsons" class="back">← Volver a Simpsons</a>
     </div>
 
   </section>
+} @else {
+    <p>Cargando detalles del personaje...</p>
 }

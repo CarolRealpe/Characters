@@ -8,22 +8,22 @@ import { DragonBallService } from '../../services/dragonball.service';
 import { DragonCharacter } from '../../models/dragon.model';
 
 @Component({
-  selector: 'app-dragon-list',
-  standalone: true,
-  imports: [CommonModule, RouterLink], 
-  templateUrl: './dragon-list.component.html',
-  styleUrl: './dragon-list.component.scss'
+  selector: 'app-dragon-list',
+  standalone: true,
+  imports: [CommonModule, RouterLink], 
+  templateUrl: './dragon-list.component.html',
+  styleUrl: './dragon-list.component.scss'
 })
 export class DragonListComponent implements OnInit {
 
-  characters$!: Observable<DragonCharacter[]>; 
+  characters$!: Observable<DragonCharacter[]>; 
 
-  constructor(private api: DragonBallService, private router: Router) {}
+  constructor(private api: DragonBallService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {
 
-    this.characters$ = this.api.getAll().pipe(
-      map((res: any) => res.items ?? [])
-    );
-  }
+    this.characters$ = this.api.getAll().pipe(
+       map((res: any) => res.items ?? [])
+    );
+ }
 }
