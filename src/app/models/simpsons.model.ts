@@ -2,5 +2,9 @@ export interface SimpsonsCharacter {
   id: number | string;
   name: string;
   image?: string;
-  [key: string]: any;
+  status: string; 
+  gender: string;
+  occupation: string; 
+  origin: string; 
+  firstEpisodeId: number; 
 }

@@ -1,35 +1,100 @@
 .simpson-detail {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fffbe2; /* Fondo amarillo muy claro */
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   display: flex;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  background: #fff8c4;
-  border-radius: 12px;
-  width: 90%;
-  margin: 1.5rem auto;
+  gap: 2rem;
   align-items: flex-start;
 
-  img {
+  .image-wrap {
+    flex-shrink: 0;
     width: 300px;
-    border-radius: 10px;
-    object-fit: cover;
+    height: 300px;
+    background: #ffec3b; /* Amarillo vibrante */
+    border-radius: 12px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
   }
 
   .info {
-    h1 { margin-top: 0; }
-    .debug {
-      margin-top: 1rem;
-      background: #fff;
-      padding: .6rem;
-      border-radius: 6px;
-      font-size: .8rem;
+    flex-grow: 1;
+
+    h1 {
+      color: #333;
+      font-size: 2.5rem;
+      border-bottom: 2px solid #ffec3b;
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
     }
 
-    .back {
-      display: inline-block;
-      margin-top: 1rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
+    .meta-data p {
+      margin: 0.7rem 0;
+      font-size: 1.1rem;
+      color: #555;
+
+      strong {
+        color: #000;
+        min-width: 180px;
+        display: inline-block;
+      }
     }
+
+    /* Estilos basados en el estado del personaje */
+    .status-alive {
+      font-weight: bold;
+      color: #2ecc71; /* Verde */
+    }
+    .status-dead {
+      font-weight: bold;
+      color: #e74c3c; /* Rojo */
+      text-decoration: line-through;
+    }
+    .status-unknown {
+      font-weight: bold;
+      color: #888;
+    }
+  }
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.6rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #2980b9;
+  }
+}
+
+@media (max-width: 768px) {
+  .simpson-detail {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  .simpson-detail .image-wrap {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+  .simpson-detail .info h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
   }
 }

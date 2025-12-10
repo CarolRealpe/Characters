@@ -1,28 +1,35 @@
-@if (character(); as char) {
-  <section class="simpson-detail">
-    
-    <img 
-      [src]="char.image || 'https://via.placeholder.com/300x300?text=No+Image'"
-      alt="{{ char.name }}" 
-    />
+<section class="simpsons-detail-page">
+  
+  <button class="back-btn" (click)="backToList()">← Back to list</button>
 
-    <div class="info">
-      <h1>{{ char.name }}</h1>
+  @if (loading()) {
+    <p class="loading">Loading...</p>
+  }
 
-      @if (char.species) {
-        <p><strong>Species:</strong> {{ char.species }}</p>
+  @if (errorMsg()) {
+    <p class="error">{{ errorMsg() }}</p>
+  }
+
+  @if (character()) {
+    <div class="detail-card">
+
+      <h2 class="name">{{ character()!.name }}</h2>
+
+      <p><strong>Gender:</strong> {{ character()!.gender || 'Unknown' }}</p>
+      <p><strong>Status:</strong> {{ character()!.status || 'Unknown' }}</p>
+      <p><strong>Occupation:</strong> {{ character()!.occupation || 'Unknown' }}</p>
+
+      @if (character()!.phrases?.length) {
+        <div class="phrases">
+          <h3>Famous Phrases:</h3>
+          <ul>
+            @for (p of character()!.phrases; track p) {
+              <li>{{ p }}</li>
+            }
+          </ul>
+        </div>
       }
-
-      @if (char.gender) {
-        <p><strong>Gender:</strong> {{ char.gender }}</p>
-      }
-
-      <pre class="debug">{{ char | json }}</pre>
-
-      <a routerLink="/simpsons" class="back">← Volver a Simpsons</a>
     </div>
+  }
 
-  </section>
-} @else {
-    <p>Cargando detalles del personaje...</p>
-}
+</section>

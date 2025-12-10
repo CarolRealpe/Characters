@@ -1,15 +1,28 @@
-<div class="simpsons-grid">
-  @for (c of (characters$ | async); track c.id) {
-    <a [routerLink]="['/simpsons', c.id]" class="sim-card">
-      <div class="thumb">
-        <img [src]="c.image || 'https://via.placeholder.com/250x250?text=No+Image'" alt="{{ c.name }}" />
+<section class="simpsons-page">
+  <h2>Simpsons Characters</h2>
+
+  <div *ngIf="loading()" class="loading">Loading...</div>
+  <div *ngIf="error()" class="error">{{ error() }}</div>
+
+  <div class="cards-container" *ngIf="!loading() && characters().length">
+    <article
+      class="card"
+      *ngFor="let c of characters()"
+      (click)="goDetail(c.id)"
+      role="button"
+      tabindex="0"
+      (keydown.enter)="goDetail(c.id)"
+    >
+      <div class="card-content">
+        <h3 class="card-title">{{ c.name }}</h3>
+        <img src="https://cdn.thesimpsonsapi.com/500{{c.portrait_path}}" alt="card-image">
+        <p class="card-sub">Occupation: {{ c.occupation || 'Unknown' }}</p>
+        <p class="card-sub">Gender: {{ c.gender || 'Unknown' }}</p>
       </div>
-      <div class="meta">
-        <h4>{{ c.name }}</h4>
-        <p class="extra">ID: {{ c.id }}</p>
-      </div>
-    </a>
-  } @empty {
-    <p>Cargando personajes de Los Simpsons...</p>
-  }
-</div>
+    </article>
+  </div>
+
+  <div *ngIf="!loading() && characters().length === 0 && !error()" class="empty">
+    No characters to show.
+  </div>
+</section>
