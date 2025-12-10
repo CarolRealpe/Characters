@@ -1,21 +1,25 @@
 .simpson-detail {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: #fffbe2; /* Fondo amarillo muy claro */
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 950px;
+  margin: 4rem auto;
+  padding: 3rem;
+  background: #fefc9a;
+  border-radius: 20px;
+  border: 4px solid #000000;
+  box-shadow: 8px 8px 0px #000000, 0 10px 30px rgba(0, 0, 0, 0.2); 
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   align-items: flex-start;
+  font-family: 'Bangers', cursive, sans-serif;
 
   .image-wrap {
     flex-shrink: 0;
-    width: 300px;
-    height: 300px;
-    background: #ffec3b; /* Amarillo vibrante */
-    border-radius: 12px;
+    width: 320px;
+    height: 320px;
+    background: #ffd90f;
+    border-radius: 14px;
     overflow: hidden;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0px #000000;
 
     img {
       width: 100%;
@@ -29,55 +33,68 @@
     flex-grow: 1;
 
     h1 {
-      color: #333;
-      font-size: 2.5rem;
-      border-bottom: 2px solid #ffec3b;
-      padding-bottom: 0.5rem;
+      color: #e74c3c;
+      font-size: 3.2rem;
+      font-weight: 800;
+      border-bottom: 5px dashed #000000; 
+      padding-bottom: 0.8rem;
       margin-top: 0;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px #000000;
     }
 
     .meta-data p {
-      margin: 0.7rem 0;
-      font-size: 1.1rem;
-      color: #555;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      color: #333;
+      display: flex;
+      align-items: baseline; 
 
       strong {
         color: #000;
-        min-width: 180px;
+        min-width: 160px;
         display: inline-block;
+        font-weight: 600;
+        margin-right: 15px;
       }
     }
 
-    /* Estilos basados en el estado del personaje */
     .status-alive {
-      font-weight: bold;
-      color: #2ecc71; /* Verde */
+      font-weight: 800;
+      color: #27ae60;
+      text-shadow: 1px 1px #000;
     }
     .status-dead {
-      font-weight: bold;
-      color: #e74c3c; /* Rojo */
-      text-decoration: line-through;
+      font-weight: 800;
+      color: #c0392b;
+      text-decoration: none;
+      text-shadow: 1px 1px #000;
     }
     .status-unknown {
-      font-weight: bold;
-      color: #888;
+      font-weight: 800;
+      color: #4a4a4a;
+      text-shadow: 1px 1px #000;
     }
   }
 }
 
 .back-btn {
   display: inline-block;
-  margin-top: 2rem;
-  padding: 0.6rem 1.5rem;
+  margin-top: 3rem;
+  padding: 0.8rem 2rem;
   background-color: #3498db;
   color: white;
   text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.2s;
+  border-radius: 8px;
+  transition: background-color 0.2s, transform 0.1s;
+  font-weight: 700;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0px #000;
 
   &:hover {
-    background-color: #2980b9;
+    background-color: #e67e22;
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px #000;
   }
 }
 
@@ -85,16 +102,27 @@
   .simpson-detail {
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding: 1.5rem;
+    gap: 2rem;
   }
   .simpson-detail .image-wrap {
     width: 100%;
-    max-width: 300px;
-    height: auto;
+    max-width: 320px;
+    height: 320px;
+    margin-bottom: 1rem;
   }
   .simpson-detail .info h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    border-bottom: 4px dashed #000000; 
+  }
+  .simpson-detail .info .meta-data p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .simpson-detail .info .meta-data p strong {
+    min-width: auto;
+    margin-bottom: 5px;
   }
 }
