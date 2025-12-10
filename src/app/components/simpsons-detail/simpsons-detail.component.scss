@@ -1,96 +1,135 @@
 :host {
   display: block;
-  padding: 30px;
+  padding: 40px 20px;
   min-height: 100vh;
-  background: radial-gradient(circle at center, #18181a 0%, #0a0a0c 100%); 
-  font-family: 'Orbitron', monospace, sans-serif;
-  color: #fff;
+  background: linear-gradient(135deg, #f0f4f7 0%, #ffffff 100%); 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
-h2 {
-  text-align: center;
-  font-size: 2.8rem;
-  color: #fff;
-  font-weight: 700;
-  margin-bottom: 50px;
-  text-shadow: 
-    0 0 5px #ffd90f,
-    0 0 15px #ffd90f,
-    0 0 30px rgba(255, 217, 15, 0.8),
-    0 0 50px rgba(255, 217, 15, 0.6);
-  letter-spacing: 2px;
-}
-
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-  padding: 10px;
-}
-
-.card {
-  background: rgba(40, 40, 45, 0.5); 
-  border: 1px solid #3d3d42;
-  border-radius: 10px;
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 
-    0 0 5px rgba(255, 217, 15, 0.3), 
-    0 5px 15px rgba(0, 0, 0, 0.8);
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+.back-btn {
+  display: inline-flex;
   align-items: center;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  color: #4a69bd;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    transform: translateY(-8px) scale(1.05);
-    background: #3d3d42; 
-    color: #ffd90f;
-    box-shadow: 
-      0 0 10px #ffd90f,
-      0 0 30px rgba(255, 217, 15, 0.8),
-      0 15px 30px rgba(0, 0, 0, 1);
+    background-color: #4a69bd;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 }
 
-.card-content {
+.detail-card {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 45px;
+  background: rgba(255, 255, 255, 0.85); 
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+  font-size: 3rem;
   text-align: center;
-  width: 100%;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ff9900; 
+  color: #ff9900;
+  font-weight: 800;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.card-title {
-  color: #ffd90f;
+.detail-card p {
+  font-size: 1.1rem;
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #ccc;
+  
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  strong {
+    color: #444;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+}
+
+.phrases {
+  margin-top: 40px;
+  padding: 25px;
+  border: 1px solid #ff9900;
+  border-radius: 10px;
+  background: rgba(255, 153, 0, 0.05); 
+  
+  h3 {
+    font-size: 1.6rem;
+    color: #ff9900;
+    margin-bottom: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid #ff9900;
+    padding-bottom: 5px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+
+    &::before {
+      content: '“';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #4a69bd;
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+  }
+}
+
+.loading, .error {
+  text-align: center;
   font-size: 1.5rem;
-  margin-bottom: 15px;
-  font-weight: 600;
-  text-shadow: 0 0 3px #ffd90f;
-}
-
-.card-content img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+  margin-top: 50px;
+  padding: 15px;
   border-radius: 8px;
-  border: 3px solid #ffd90f;
-  background: #000;
-  margin-bottom: 15px;
-  box-shadow: 0 0 8px rgba(255, 217, 15, 0.5);
+  font-weight: 700;
 }
 
-
-.card-sub {
-  color: #b3b3b3;
-  font-size: 1rem;
-  margin: 5px 0 0;
-  text-shadow: none;
-  font-weight: 300;
+.loading {
+  color: #4a69bd;
+  background: rgba(74, 105, 189, 0.1);
 }
 
-
-.card:hover .card-title,
-.card:hover .card-sub {
-  color: #fff;
-  text-shadow: 0 0 5px #fff;
+.error {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
 }

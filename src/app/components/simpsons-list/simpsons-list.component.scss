@@ -1,61 +1,54 @@
 :host {
   display: block;
-  padding: 25px;
+  padding: 30px;
   min-height: 100vh;
-  
-  /* Fondo muy oscuro, casi negro, para que el neón resalte */
-  background-color: #1a1a1a; 
-
-  /* Fuente que evoca una sensación digital o de juego */
-  font-family: 'Press Start 2P', monospace, sans-serif; 
+  background: linear-gradient(135deg, #f7faff 0%, #ffffff 100%); 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
 h2 {
   text-align: center;
-  font-size: 1.8rem; 
-  color: #00ffff; /* Color de neón primario (cian) */
-  margin-bottom: 40px;
-  /* Efecto de texto neon */
+  font-size: 2.8rem; 
+  color: #008cff;
+  font-weight: 800;
+  margin-bottom: 60px;
   text-shadow: 
-    0 0 7px rgba(0, 255, 255, 0.8),
-    0 0 10px rgba(0, 255, 255, 0.8);
-  /* Estilo retro: letras pequeñas pero con mucho espaciado */
-  letter-spacing: 2px; 
+    0 0 5px rgba(0, 140, 255, 0.4),
+    0 0 10px rgba(0, 140, 255, 0.2);
+  letter-spacing: 2px;
 }
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-  gap: 35px; /* Más espacio entre tarjetas */
-  padding: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+  gap: 35px;
+  padding: 0;
 }
 
 .card {
-  /* Fondo opaco oscuro */
-  background: #333333; 
-  /* Borde grueso y llamativo */
-  border: 4px solid #ff00ff; /* Color neón secundario (magenta) */
-  border-radius: 8px; /* Bordes ligeramente angulares */
+  background: rgba(255, 255, 255, 0.95); 
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
   padding: 20px;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
-  /* Sombra de caja tipo neón */
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 
-    0 0 10px rgba(255, 0, 255, 0.5), 
-    0 0 20px rgba(255, 0, 255, 0.3);
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 140, 255, 0.15);
   display: flex;
   flex-direction: column; 
   justify-content: flex-start;
   align-items: center;
 
   &:hover {
-    transform: scale(1.03); 
-    background: #ff00ff; /* Fondo magenta en hover */
-    color: #1a1a1a; /* Texto oscuro en hover */
-    /* Sombra de caja más intensa en hover */
+    transform: translateY(-5px) scale(1.02);
+    background: #ffffff;
+    color: #008cff;
+    border-color: #008cff;
     box-shadow: 
-        0 0 15px #ff00ff,
-        0 0 30px #ff00ff;
+      0 10px 20px rgba(0, 0, 0, 0.15), 
+      0 0 20px rgba(0, 140, 255, 0.4);
   }
 }
 
@@ -65,28 +58,29 @@ h2 {
 }
 
 .card-title {
-  color: #00ffff; /* Título cian */
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  /* Efecto de texto neón */
-  text-shadow: 0 0 5px rgba(0, 255, 255, 0.8); 
-  letter-spacing: 1px;
+  color: #008cff;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  text-shadow: 0 0 2px rgba(0, 140, 255, 0.3); 
+  letter-spacing: 0;
+  font-weight: 700;
 }
 
 .card-content img {
   width: 100%;
-  height: 200px; 
+  height: 200px;
   object-fit: cover;
-  border-radius: 6px;
-  border: 3px solid #00ffff; /* Borde cian */
-  background: #0d0d0d;
+  border-radius: 8px;
+  border: 3px solid #008cff;
+  background: #f0f0f0;
   margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
 .card-sub {
-  color: #ffffff; /* Texto blanco puro */
-  font-size: 0.8rem;
+  color: #666;
+  font-size: 0.95rem;
   margin: 5px 0 0;
   text-shadow: none;
   font-weight: 400;
@@ -94,9 +88,8 @@ h2 {
 }
 
 
-/* Estilos al pasar el ratón */
 .card:hover .card-title,
 .card:hover .card-sub {
-  color: #1a1a1a; /* Texto oscuro en hover */
+  color: #333;
   text-shadow: none;
 }
